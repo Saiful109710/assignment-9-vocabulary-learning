@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const UpdateProfile = () => {
+
+    const {handleUpdateProfile} = useContext(AuthContext)
   const handleSubmit = (e) => {
     e.preventDefault();
     const name= e.target.name.value;
@@ -8,7 +11,9 @@ const UpdateProfile = () => {
     const email = e.target.email.value;
     const password  = e.target.password.value;
 
-    
+    handleUpdateProfile(name,photo)
+
+
 
   };
   return (
