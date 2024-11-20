@@ -1,0 +1,35 @@
+[
+    {
+      "id": "course1",
+      "name": "Beginner Vocabulary",
+      "description": "Start with essential words and phrases for everyday conversations.",
+      "image": "https://i.ibb.co.com/LSVpJqs/beginner-Vocab.jpg",
+      "lessonsCount": 10,
+      "progress": 0,
+      "price": 19.99,
+      "ratings": 2.5,
+      "link": "/courses/beginner"
+    },
+    {
+      "id": "course2",
+      "name": "Intermediate Vocabulary",
+      "description": "Build your vocabulary with intermediate-level words and expressions.",
+      "image": "https://i.ibb.co.com/9cK3PSY/intermidiate-Vocab.jpg",
+      "lessonsCount": 12,
+      "progress": 0,
+      "price": 29.99,
+      "ratings": 4.7,
+      "link": "/courses/intermediate"
+    },
+    {
+      "id": "course3",
+      "name": "Advanced Vocabulary",
+      "description": "Expand your vocabulary with complex words and professional terminology.",
+      "image": "https://i.ibb.co.com/mTfHYHb/advanve.jpg",
+      "lessonsCount": 15,
+      "progress": 0,
+      "price": 39.99,
+      "ratings": 4.8,
+      "link": "/courses/advanced"
+    }
+  ]

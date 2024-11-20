@@ -68,10 +68,12 @@ const Tutorials = () => {
             </div>
           </div>
 
-          <div className='grid grid-cols-4 gap-5'>
+          <div className='carousel carousel-end rounded-box'>
               {
                 iframeData.map((Data,index)=>(
-                  <iframe className='w-full h-[300px] shadow-lg rounded-xl' src={Data.embedLink} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                  <div  className="carousel-item ml-5">
+                      <iframe className='w-full h-[300px] shadow-lg rounded-xl' src={Data.embedLink} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                  </div>
                 ))
               }
           </div>

@@ -22,7 +22,8 @@ const router = createBrowserRouter([
         children:[
             {
                 path:'/',
-                element:<Home></Home>
+                element:<Home></Home>,
+                loader:()=>fetch('/courses.json')
             },
             {
                 path:'/startLearning',
@@ -38,7 +39,9 @@ const router = createBrowserRouter([
                         const koreanLanguageRes = await fetch('/korean_language.json')
                         const koreanLanguageData = await koreanLanguageRes.json();
 
-                        return {iframeData,koreanLanguageData}
+                        
+
+                        return {iframeData,koreanLanguageData,}
                 }
             },
             {

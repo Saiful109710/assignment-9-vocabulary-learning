@@ -55,13 +55,19 @@ const Navbar = () => {
           {links}
         </ul>
       </div>
-      <div className="navbar-end">
+      <div className="navbar-end gap-3">
         {
-          user?.email && <p>welcome , {user.email}</p>
+          user?.displayName && <p>welcome , {user.displayName}</p>
         }
+         <div className="avatar">
+                    <div className="ring-primary ring-offset-base-100 w-[30px] rounded-full ring ring-offset-2 mx-auto">
+                      <img src={user?.photoURL?user.photoURL:"https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"} />
+                    </div>
+                  </div>
         {
-            user ? <button onClick={handleLogOut} className="btn">Log Out</button> : <NavLink to='/login' className="btn">Login</NavLink>
+            user ? <button onClick={handleLogOut} className="btn btn-primary">Log Out</button> : <NavLink to='/login' className="btn btn-primary">Login</NavLink>
         }
+         
       </div>
     </div>
   );
