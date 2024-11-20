@@ -1,7 +1,37 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { FaStar } from 'react-icons/fa'
+import toast, { Toaster } from 'react-hot-toast';
 
 const CoursesCard = ({course}) => {
+    const [isCart,setIsCart] = useState(false)
+
+
+    const handleCourseBtn=(course)=>{
+        toast.success('You have successfully buy this course')
+        const date = new Date().toLocaleString();
+       
+
+
+        const updateCourse = {...course,date}
+        
+
+        let saveData = []
+        const getLocalCartData = localStorage.getItem('cart');
+        if(getLocalCartData){
+            saveData = JSON.parse(getLocalCartData)
+        }
+        saveData.push(updateCourse);
+        localStorage.setItem('cart',JSON.stringify(saveData))
+
+        setIsCart(true)
+        
+
+        
+
+        
+    }
+
+
   return (
     <div key={course.id} className='p-5 flex flex-col w-full flex-grow gap-5 shadow-2xl rounded-2xl hover:scale-105 transition duration-300'>
     <div > 
@@ -28,8 +58,9 @@ const CoursesCard = ({course}) => {
         
     </div>
         <div>
-            <button className='btn btn-primary w-full'>Buy This courses</button>
+            <button disabled={isCart}  onClick={()=>handleCourseBtn(course)} className='btn btn-primary w-full'>Buy This courses</button>
         </div>
+        
 </div>
   )
 }
