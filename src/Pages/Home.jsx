@@ -8,10 +8,10 @@ import { useLoaderData } from 'react-router-dom'
 
 const Home = () => {
  const courses = useLoaderData();
- console.log(courses)
+
   return (
     <div>
-        <Banner></Banner>
+        <Banner ></Banner>
         <AboutUs></AboutUs>
         <Count></Count>
         <Choose></Choose>

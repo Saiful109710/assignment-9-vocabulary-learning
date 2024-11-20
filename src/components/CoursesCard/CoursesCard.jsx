@@ -33,7 +33,7 @@ const CoursesCard = ({course}) => {
 
 
   return (
-    <div key={course.id} className='p-5 flex flex-col w-full flex-grow gap-5 shadow-2xl rounded-2xl hover:scale-105 transition duration-300'>
+    <div data-aos="zoom-out-right" key={course.id} className='p-5 flex flex-col w-full flex-grow gap-5 shadow-2xl rounded-2xl hover:scale-105 transition duration-300'>
     <div > 
         <img className='w-full h-[200px]' src={course.image} alt="" />
     </div>

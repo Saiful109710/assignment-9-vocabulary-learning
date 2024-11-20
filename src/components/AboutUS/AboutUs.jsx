@@ -5,7 +5,7 @@ import { FaGlobe, FaLightbulb, FaUserGraduate } from "react-icons/fa";
 const AboutUs = () => {
   return (
     <>
-        <section className="  py-16">
+        <section data-aos="zoom-out-right" className="py-16 ">
       <div className="max-w-6xl mx-auto px-6 text-center">
         {/* Header */}
         <h1 className="text-5xl font-bold mb-6">About Us</h1>
@@ -14,7 +14,7 @@ const AboutUs = () => {
         </p>
 
         {/* Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div data-aos="zoom-in" className="grid grid-cols-1 md:grid-cols-3 gap-8 ">
           {/* Card 1 */}
           <div className="bg-white bg-opacity-10 p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105">
             <div className="flex items-center justify-center w-16 h-16 bg-white text-blue-600 rounded-full mx-auto mb-4">
@@ -27,7 +27,7 @@ const AboutUs = () => {
           </div>
 
           {/* Card 2 */}
-          <div className="bg-white bg-opacity-10 p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105">
+          <div data-aos="zoom-out-up" className="bg-white bg-opacity-10 p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 ">
             <div className="flex items-center justify-center w-16 h-16 bg-white text-green-600 rounded-full mx-auto mb-4">
               <FaGlobe className="text-3xl" />
             </div>
@@ -41,7 +41,7 @@ const AboutUs = () => {
           </div>
 
           {/* Card 3 */}
-          <div className="bg-white bg-opacity-10 p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105">
+          <div data-aos="zoom-out-right" className="bg-white bg-opacity-10 p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 ">
             <div className="flex items-center justify-center w-16 h-16 bg-white text-purple-600 rounded-full mx-auto mb-4">
               <FaUserGraduate className="text-3xl" />
             </div>
