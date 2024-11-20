@@ -1,11 +1,11 @@
 import React from 'react'
 
-const Error = () => {
+const Profile = () => {
   return (
     <div>
-        This is error
+      
     </div>
   )
 }
 
-export default Error
+export default Profile

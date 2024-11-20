@@ -1,9 +1,11 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { FaGoogle } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 
 const Register = () => {
+
+  const {setLoading} = useContext(AuthContext)
 
   const {handleRegister,user,setUser,handleGoogleLogin,error,setError} = useContext(AuthContext)
   const handleSubmit=(e)=>{
@@ -37,9 +39,11 @@ const Register = () => {
         handleRegister(email,password)
         .then(res=>{
           setUser(res.user)
+          setLoading(false)
         })
         .catch((err)=>{
           setError(err.message)
+          setLoading(false)
         })
 
     

@@ -1,10 +1,14 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
 import { AuthContext } from "../Provider/AuthProvider";
 
 const Login = () => {
       const {handleLogin,handleGoogleLogin,user,setUser,error,setError} = useContext(AuthContext)
+        const {setLoading} = useContext(AuthContext)
+        const location = useLocation()
+        const navigate = useNavigate()
+        console.log(location)
 
     const handleSubmit = (e)=>{
         e.preventDefault()
@@ -17,15 +21,24 @@ const Login = () => {
         handleLogin(email,password)
         .then(res=>{
             setUser(res.user)
+            setLoading(true)
+            navigate(location.state)
+
         })
         .catch(err=>{
             setError(err.message)
+            setLoading(true)
         })
 
     }
 
     const googleHandler = ()=>{
       handleGoogleLogin()
+      .then(res=>{
+        setLoading(false)
+        navigate(location.state?location.state:'/')
+      })
+      
     }
 
   return (
