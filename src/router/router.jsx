@@ -11,6 +11,8 @@ import ErrorPage from "../Pages/ErrorPage";
 import Lesson from "../Pages/Lesson";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import Profile from "../Pages/Profile";
+import MyProfile from "../components/myProfile/MyProfile";
+import UpdateProfile from "../components/UpdateProfile/UpdateProfile";
 
 const router = createBrowserRouter([
     {
@@ -60,7 +62,22 @@ const router = createBrowserRouter([
             },
             {
                 path:'/profile',
-                element:<Profile></Profile>
+                element:<Profile></Profile>,
+                children:[
+                    {
+                        path:'/profile',
+                        element:<MyProfile></MyProfile>
+                    },
+                  
+                    {
+                        path:'myProfile',
+                        element:<MyProfile></MyProfile>
+                    },
+                    {
+                        path:'updateProfile',
+                        element:<UpdateProfile></UpdateProfile>
+                    }
+                ]
             }
         ]
     }
