@@ -20,13 +20,13 @@ const Tutorials = () => {
     <div>
           <h2 className='text-2xl font-bold text-center my-5'>Tutorials</h2>
 
-          <div className='grid grid-cols-2 h-[500px] gap-5 my-10 p-5 bg-gray-100'>
+          <div className='flex flex-wrap-reverse md:grid md:grid-cols-2 md:h-[500px] gap-5 my-10 p-5 bg-gray-100'>
             <div className='overflow-scroll'>
             {
               koreanLanguageData.map((category,index)=>(
                 <div className="collapse collapse-arrow bg-base-200">
             <input type="radio" name="my-accordion-2" defaultChecked />
-            <div className="collapse-title text-xl font-medium">{category.title}</div>
+            <div className="collapse-title text-lg md:text-xl font-medium">{category.title}</div>
             <div className="collapse-content">
               <ul className='space-y-2'>
                 {category.topics.map((topic,index)=>(
@@ -63,7 +63,7 @@ const Tutorials = () => {
           
            </div>
             {/* iframe video */}
-            <div>
+            <div className='w-full h-[400px] md:h-full'>
             <iframe className='w-full h-full' src={video} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
           </div>

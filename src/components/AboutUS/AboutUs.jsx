@@ -10,7 +10,7 @@ const AboutUs = () => {
         {/* Header */}
         <h1 className="text-5xl font-bold mb-6">About Us</h1>
         <p className="text-xl mb-12">
-          At <strong>[Your Website Name]</strong>, we strive to make Japanese vocabulary learning interactive, enjoyable, and deeply enriching.
+          At <strong>Lingo Bingo</strong>, we strive to make Japanese vocabulary learning interactive, enjoyable, and deeply enriching.
         </p>
 
         {/* Cards */}

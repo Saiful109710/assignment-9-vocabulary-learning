@@ -25,9 +25,9 @@ const Lesson = () => {
     
     
   return (
-    <div className='mb-5'>
+    <div className='mb-5 p-5'>
             <h2 className='text-xl font-bold text-center text-white'><span className=' rounded-lg p-2 bg-gradient-to-r bg-primary'>Lesson No: {lesson_no}</span></h2>
-            <div className='grid grid-cols-3 gap-5 my-10'>
+            <div className='grid grid-cols-2 md:grid-cols-3 gap-5 my-10'>
                 {
                     Vocabularies.map((vocabulary,index)=><Vocabulary_card key={index} vocabulary={vocabulary}></Vocabulary_card>)
                 }

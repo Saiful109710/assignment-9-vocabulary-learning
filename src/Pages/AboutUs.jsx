@@ -30,10 +30,10 @@ const AboutUs = () => {
     },
   ];
   return (
-      <div>
-          <div className='bg-gradient-to-r bg-blue-500 text-white rounded-xl h-[400px] flex flex-col gap-5 justify-center items-center'>
-            <h2 className='text-5xl text-center'>I am Passionate  web developer</h2>
-            <p className='text-xl w-4/5 text-center'>I am a passionate web developer dedicated to crafting dynamic, user-friendly websites and applications. With a keen eye for design and a strong foundation in modern web technologies, I thrive on transforming ideas into impactful digital experiences. Constantly learning and innovating, I aim to deliver solutions that are not only functional but also visually engaging.</p>
+      <div className='p-5'>
+          <div className='bg-gradient-to-r bg-blue-500 text-white rounded-xl px-5 py-10 md:h-[400px] flex flex-col gap-5 justify-center items-center'>
+            <h2 className='text-3xl md:text-5xl text-center'>I am Passionate  web developer</h2>
+            <p className='text-lg md:text-xl w-4/5 text-center'>I am a passionate web developer dedicated to crafting dynamic, user-friendly websites and applications. With a keen eye for design and a strong foundation in modern web technologies, I thrive on transforming ideas into impactful digital experiences. Constantly learning and innovating, I aim to deliver solutions that are not only functional but also visually engaging.</p>
       </div>
 
       <div className='my-10'>
@@ -72,9 +72,9 @@ const AboutUs = () => {
           </div>
       </div>
 
-      <div className='my-10'>
+      <div className='my-10 p-5'>
           <h2 className='text-center font-bold text-3xl my-5'>My Projects</h2>
-          <div className='grid grid-cols-3 gap-5'>
+          <div className='grid md:grid-cols-3 gap-5'>
                 
                {
                 projects.map((project)=>(

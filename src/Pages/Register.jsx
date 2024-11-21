@@ -1,12 +1,13 @@
 import React, { useContext, useState } from "react";
 import { FaGoogle } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import toast from "react-hot-toast";
 
 const Register = () => {
 
   const {setLoading} = useContext(AuthContext)
+  const navigate = useNavigate()
 
   const {handleRegister,user,setUser,handleGoogleLogin,error,setError} = useContext(AuthContext)
   const handleSubmit=(e)=>{
@@ -42,9 +43,12 @@ const Register = () => {
           setUser(res.user)
           setLoading(false)
           toast.success('registration successfully')
+          navigate('/')
+        
         })
         .catch((err)=>{
           setError(err.message)
+          toast.error(err.message)
           setLoading(false)
         })
 

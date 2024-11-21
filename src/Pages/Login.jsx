@@ -61,7 +61,7 @@ const Login = () => {
    
 
   return (
-    <div className="flex flex-col justify-center items-center mt-10 w-[400px] mx-auto space-y-5">
+    <div className="flex flex-col justify-center items-center mt-10 w-[400px] mx-auto space-y-5 mb-10">
       <div className="card bg-base-100 w-full  shrink-0 shadow-2xl py-5">
         <form onSubmit={handleSubmit} className="card-body">
           <div className="form-control">

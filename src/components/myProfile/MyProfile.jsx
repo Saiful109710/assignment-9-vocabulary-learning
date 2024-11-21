@@ -2,9 +2,11 @@ import React, { useContext, useEffect, useState } from 'react'
 import { AuthContext } from '../../Provider/AuthProvider'
 import Courses from '../Courses/Courses'
 import { Link, useNavigate } from 'react-router-dom'
+import Modal from 'react-modal'
 
 const MyProfile = () => {
     const {user} = useContext(AuthContext)
+    const [modalData,setModalData] = useState(null)
       const [enrolledCorses,setEnrolledCourses] = useState([])
       const navigate = useNavigate()
 
@@ -15,6 +17,8 @@ const MyProfile = () => {
           }
       },[])
       console.log(enrolledCorses)
+
+      
   return (
   <>
       <div className='bg-slate-800 *:text-white p-5 rounded-xl shadow-lg h-screen space-y-5 overflow-scroll'>
@@ -26,11 +30,11 @@ const MyProfile = () => {
                   </div>
                   <h2 className='font-bold text-xl text-center'>Welcome</h2>
             {
-                user?.displayName && <h2 className='text-lg '>Name: {user.displayName}</h2>
+                user?.displayName && <p className='md:text-lg '>Name: {user.displayName}</p>
             }
 
             {
-                user?.email && <p className='text-lg'>Email:{user.email}</p>
+                user?.email && <p className='md:text-lg'>Email : {user.email}</p>
             }
             {
                 user?.phoneNumber && <p>Phone:{user.phoneNumber}</p>
@@ -43,12 +47,19 @@ const MyProfile = () => {
               <div className='flex flex-wrap gap-5 '>
               {
                   enrolledCorses.map((course)=>(
-                   <div className=' p-5 shadow-xl rounded-2xl bg-slate-950 space-y-5 flex flex-col justify-center items-center' >
-                      <h2 className='text-xl font-bold'>{course.name}</h2>
+                   <div className=' p-5 shadow-xl rounded-2xl bg-slate-950 space-y-5 ' >
+                     <div className='flex flex-col justify-center items-center gap-5'>
+                     <h2 className='text-xl font-bold'>{course.name}</h2>
                       <p>Enrollment Date: {course.date}</p>
                       <div className="radial-progress" style={{ "--value": 70 }} role="progressbar">
                         70%
                       </div>
+                     </div>
+                      
+                        <div className='flex justify-end'>
+                          <button onClick={()=>setModalData(course)} className='btn bg-slate-900 text-white shadow-2xl '>History</button>
+                        </div>
+                      
                    </div>
                   ))
                 }
@@ -56,6 +67,31 @@ const MyProfile = () => {
             </div>
 
     </div>
+    {
+      modalData && (
+        <Modal
+           isOpen={!!modalData}
+          onRequestClose={() => setModalData(null)}
+          contentLabel="Vocabulary Details"
+          className="max-w-md mx-auto p-4 bg-slate-800 *:text-white rounded shadow-md"
+          overlayClassName="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+
+          <div className='p-5 space-y-3'>
+          <h2 className='text-lg font-semibold'>Course Name : {modalData.name}</h2>
+              <p>Enrolment Data: {modalData.date}</p>
+              <p>Amount:${modalData.price}</p>
+              <p>Payment Method:{modalData?.paymentMethod}</p>
+              <p>Transaction id: {modalData?.transactionId}</p>
+          </div>
+          <button
+            onClick={() => setModalData(null)}
+            className="mt-4 bg-slate-900 hover:bg-slate-600 text-white py-2 px-4 rounded"
+          >
+            Close
+          </button>
+        </Modal>
+      )
+    }
   </>
   )
 }

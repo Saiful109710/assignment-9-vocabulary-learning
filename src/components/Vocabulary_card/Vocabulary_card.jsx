@@ -40,9 +40,9 @@ const Vocabulary_card = ({ vocabulary }) => {
   return <>
         <div onClick={()=>pronounceWord(word)} className={`p-5 ${getDifficultyColor(difficulty)}  shadow-lg rounded-xl hover:scale-105 space-y-3 cursor-pointer`}>
             <h2 className="text-xl font-bold text-center">{word}</h2>
-            <p> <strong>Pronunciation</strong> : {pronunciation}</p>
-            <p className=""><strong>Meaning</strong> : {meaning}</p>
-            <p className=""><strong>Part of Speech</strong> : {part_of_speech}</p>
+            <p> <span className=" font-semibold md:font-bold">Pronunciation</span> : {pronunciation}</p>
+            <p className=""><span className="font-semibold md:font-bold">Meaning</span> : {meaning}</p>
+            <p className=""><span className=" font-semibold md:font-bold">Part of Speech</span> : {part_of_speech}</p>
             <button onClick={()=>setModalData(vocabulary)}  className={`btn btn-sm bg-blue-500 hover:bg-blue-600 text-white`}>When To Say</button>
 
             {/* Modal */}
