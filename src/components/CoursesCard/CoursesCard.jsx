@@ -1,12 +1,20 @@
-import React, { useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { FaStar } from 'react-icons/fa'
 import toast, { Toaster } from 'react-hot-toast';
+import { AuthContext } from '../../Provider/AuthProvider';
+import { useNavigate } from 'react-router-dom';
 
 const CoursesCard = ({course}) => {
     const [isCart,setIsCart] = useState(false)
+    const {user} = useContext(AuthContext)
+    const navigate = useNavigate()
 
 
     const handleCourseBtn=(course)=>{
+
+        if(!user){
+            return navigate('/login')
+        }
         toast.success('You have successfully buy this course')
         const date = new Date().toLocaleString();
        
@@ -30,6 +38,16 @@ const CoursesCard = ({course}) => {
 
         
     }
+
+    useEffect(()=>{
+        const cartData = JSON.parse(localStorage.getItem('cart'));
+        const isExist = cartData?.find(cart=>cart.id===course.id);
+        if(isExist){
+            setIsCart(true)
+        }
+      
+
+    },[])
 
 
   return (
