@@ -1,5 +1,5 @@
-import React, { useContext } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import React, { useContext, useRef } from "react";
+import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
 import { AuthContext } from "../Provider/AuthProvider";
 import toast from "react-hot-toast";
@@ -10,6 +10,7 @@ const Login = () => {
         const location = useLocation()
         const navigate = useNavigate()
         console.log(location)
+        const emailRef = useRef()
 
     const handleSubmit = (e)=>{
         e.preventDefault()
@@ -23,6 +24,7 @@ const Login = () => {
         .then(res=>{
             setUser(res.user)
             setLoading(true)
+            toast.success('Login Successfully')
             navigate(location.state)
 
         })
@@ -38,6 +40,7 @@ const Login = () => {
       handleGoogleLogin()
       .then(res=>{
         setLoading(false)
+        toast.success('Login Successfully')
         navigate(location.state?location.state:'/')
       }).catch(err=>{
         setError(err.message)
@@ -45,6 +48,17 @@ const Login = () => {
       })
       
     }
+
+    const handleForgetPassword=()=>{
+
+        const email = emailRef.current.value;
+        console.log(email)
+
+        navigate('/forgetPassword',{state:{email}})
+
+    }
+
+   
 
   return (
     <div className="flex flex-col justify-center items-center mt-10 w-[400px] mx-auto space-y-5">
@@ -57,6 +71,7 @@ const Login = () => {
             <input
               type="email"
               name='email'
+              ref={emailRef}
               placeholder="email"
               className="input input-bordered"
               required
@@ -74,7 +89,7 @@ const Login = () => {
               required
             />
             <label className="label">
-              <a href="#" className="label-text-alt link link-hover">
+              <a onClick={handleForgetPassword}  className="label-text-alt link link-hover">
                 Forgot password?
               </a>
             </label>

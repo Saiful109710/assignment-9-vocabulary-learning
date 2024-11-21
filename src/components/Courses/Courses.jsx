@@ -15,7 +15,7 @@ const Courses = ({courses}) => {
 
             <div className='grid grid-cols-3 gap-5'>
             {
-                courses.map((course)=><CoursesCard data-aos="zoom-out-right" key={course.id} course={course}></CoursesCard>)
+                courses.map((course)=><CoursesCard  key={course.id} course={course}></CoursesCard>)
             }
             </div>
 
