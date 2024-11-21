@@ -1,8 +1,23 @@
-# React + Vite
+# Lingo Bingo: Korean Vocabulary Learning Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Lingo Bingo** is an interactive and fun platform designed to help users master Korean vocabulary. The website offers an engaging learning experience through various lessons, vocabulary quizzes, and real-life scenarios to improve language skills.
 
-Currently, two official plugins are available:
+## Table of Contents
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Getting Started](#getting-started)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+## Features
+- **User Authentication:** Secure sign-up and login functionality using Firebase Authentication (email/password and Google login).
+- **Course Catalog:** Browse and purchase Korean vocabulary courses.
+- **Responsive Layout:** The website is fully responsive, ensuring a smooth experience across various devices.
+- **Interactive Learning Tools:** Includes quizzes, vocabulary practice, and real-life scenario-based learning.
+- **Cart and Purchase Flow:** Users can add courses to the cart and proceed to checkout.
+
+## Tech Stack
+- **Frontend:** React, Tailwind CSS, React Router, React Slick (for carousel functionality),AOS package (for animation)
+- **Backend:** Firebase Authentication (for user management)
+- **Database:** LocalStorage
+
+

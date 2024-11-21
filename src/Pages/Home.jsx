@@ -8,6 +8,7 @@ import { useLoaderData } from 'react-router-dom'
 
 const Home = () => {
  const courses = useLoaderData();
+ console.log(import.meta.env.VITE_a)
 
   return (
     <div>
