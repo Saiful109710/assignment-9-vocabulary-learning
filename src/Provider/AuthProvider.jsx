@@ -1,6 +1,8 @@
 import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth'
 import React, { createContext, useEffect, useState } from 'react'
 import auth from '../firebase/firebase.config'
+import toast from 'react-hot-toast'
+import { useNavigate } from 'react-router-dom'
 
 export const AuthContext = createContext(null)
 
@@ -11,6 +13,7 @@ const AuthProvider = ({children}) => {
     const [success,setSuccess] = useState(null)
     const [error,setError] = useState(null)
     const [loading,setLoading] = useState(true)
+   
     
     const googleProvider = new GoogleAuthProvider()
 
@@ -33,17 +36,13 @@ const AuthProvider = ({children}) => {
 
       }
 
-      const handleUpdateProfile =(name,photo)=>{
-            updateProfile(auth.currentUser,{
+      const handleUpdateProfile =(name,photo,number)=>{
+          return  updateProfile(auth.currentUser,{
               displayName:name,
-              photoURL:photo
+              photoURL:photo,
+              phoneNumber:number
             })
-            .then(()=>{
-              setSuccess('Profile Updated Successfully')
-            })
-            .catch(err=>{
-              setError(err.message)
-            })
+           
       }
 
    

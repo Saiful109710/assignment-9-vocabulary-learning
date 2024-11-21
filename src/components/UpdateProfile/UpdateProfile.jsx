@@ -1,17 +1,31 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 const UpdateProfile = () => {
-
-    const {handleUpdateProfile} = useContext(AuthContext)
+  
+  const navigate = useNavigate()
+    const {handleUpdateProfile,success} = useContext(AuthContext)
   const handleSubmit = (e) => {
     e.preventDefault();
     const name= e.target.name.value;
     const photo = e.target.photo.value;
-    const email = e.target.email.value;
-    const password  = e.target.password.value;
+    const number = e.target.number.value;
+    
 
-    handleUpdateProfile(name,photo)
+    handleUpdateProfile(name,photo,number)
+    .then(()=>{
+      toast.success('Profile Updated Successfully')
+      navigate('/profile/myProfile')
+      
+    })
+    .catch(err=>{
+      setError(err.message)
+      toast.error(err.message)
+    })
+    
+
 
 
 
@@ -48,12 +62,12 @@ const UpdateProfile = () => {
           </div>
           <div className="form-control">
             <label className="label">
-              <span className="">Update Email</span>
+              <span className="">Update Phone</span>
             </label>
             <input
-              type="email"
-              name='email'
-              placeholder="email"
+              type="text"
+              name='number'
+              placeholder="number"
               className="input border border-black bg-transparent "
               required
             />

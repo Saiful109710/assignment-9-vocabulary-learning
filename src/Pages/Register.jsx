@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { FaGoogle } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
+import toast from "react-hot-toast";
 
 const Register = () => {
 
@@ -40,6 +41,7 @@ const Register = () => {
         .then(res=>{
           setUser(res.user)
           setLoading(false)
+          toast.success('registration successfully')
         })
         .catch((err)=>{
           setError(err.message)
@@ -56,10 +58,14 @@ const Register = () => {
 
       const googleHandler = ()=>{
         handleGoogleLogin()
-        .then(res=>console.log(res))
+        .then(res=>{
+          toast.success('registration successfully')
+        }).catch(err=>{
+          toast.error(err.message)
+        })
     }
   return (
-    <div className="flex flex-col justify-center items-center mt-10 w-[400px] mx-auto space-y-5 mb-10">
+    <div className="flex flex-col justify-center items-center mt-5 w-[400px] mx-auto space-y-5 mb-10">
       <div className="card bg-base-100 w-full  shrink-0 shadow-2xl py-5">
         <form onSubmit={handleSubmit} className="card-body">
           <div className="form-control">

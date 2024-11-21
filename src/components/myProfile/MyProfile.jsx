@@ -1,10 +1,12 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { AuthContext } from '../../Provider/AuthProvider'
 import Courses from '../Courses/Courses'
+import { Link, useNavigate } from 'react-router-dom'
 
 const MyProfile = () => {
     const {user} = useContext(AuthContext)
       const [enrolledCorses,setEnrolledCourses] = useState([])
+      const navigate = useNavigate()
 
       useEffect(()=>{
           const localData = localStorage.getItem('cart')
@@ -22,6 +24,7 @@ const MyProfile = () => {
                       <img src={user?.photoURL?user.photoURL:"https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"} />
                     </div>
                   </div>
+                  <h2 className='font-bold text-xl text-center'>Welcome</h2>
             {
                 user?.displayName && <h2 className='text-lg '>Name: {user.displayName}</h2>
             }
@@ -32,6 +35,7 @@ const MyProfile = () => {
             {
                 user?.phoneNumber && <p>Phone:{user.phoneNumber}</p>
             }
+            <Link to='/profile/updateProfile'><button  className=' btn bg-slate-950 shadow-2xl font-bold text-white hover:bg-slate-800'>Update Profile</button></Link>
             </div>
 
             <div className='bg-slate-900 rounded-2xl p-10 flex flex-col gap-5 '>

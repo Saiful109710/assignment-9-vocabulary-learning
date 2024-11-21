@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
 import { AuthContext } from "../Provider/AuthProvider";
+import toast from "react-hot-toast";
 
 const Login = () => {
       const {handleLogin,handleGoogleLogin,user,setUser,error,setError} = useContext(AuthContext)
@@ -27,6 +28,7 @@ const Login = () => {
         })
         .catch(err=>{
             setError(err.message)
+            toast.error(err.message)
             setLoading(true)
         })
 
@@ -37,6 +39,9 @@ const Login = () => {
       .then(res=>{
         setLoading(false)
         navigate(location.state?location.state:'/')
+      }).catch(err=>{
+        setError(err.message)
+        toast.error(err.message)
       })
       
     }
