@@ -16,8 +16,16 @@
 - **Cart and Purchase Flow:** Users can add courses to the cart and proceed to checkout.
 
 ## Tech Stack
-- **Frontend:** React, Tailwind CSS, React Router, React Slick (for carousel functionality),AOS package (for animation)
+- **Frontend:** React, Tailwind CSS, React Router, React Slick (for carousel functionality),AOS package (for animation),React Helmet (for dynamic title)
 - **Backend:** Firebase Authentication (for user management)
 - **Database:** LocalStorage
+
+## Website Live Link
+https://lingo-bingo-assignment9.netlify.app/
+
+## Website Requirement Docs Link
+https://docs.google.com/document/d/1uck_6gjiW22ytQMUEdznPxuxX4XB9wDz6fHJroTqCps/edit?tab=t.0
+
+
 
 
