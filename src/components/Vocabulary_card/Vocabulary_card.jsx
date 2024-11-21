@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Helmet } from "react-helmet-async";
 import Modal from 'react-modal';
 
 const Vocabulary_card = ({ vocabulary }) => {
@@ -38,6 +39,7 @@ const Vocabulary_card = ({ vocabulary }) => {
     }
     
   return <>
+                
         <div onClick={()=>pronounceWord(word)} className={`p-5 ${getDifficultyColor(difficulty)}  shadow-lg rounded-xl hover:scale-105 space-y-3 cursor-pointer`}>
             <h2 className="text-xl font-bold text-center">{word}</h2>
             <p> <span className=" font-semibold md:font-bold">Pronunciation</span> : {pronunciation}</p>

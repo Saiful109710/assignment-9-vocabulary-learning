@@ -5,6 +5,7 @@ import Count from '../components/Count/Count'
 import Choose from '../components/Choose/Choose'
 import Courses from '../components/Courses/Courses'
 import { useLoaderData } from 'react-router-dom'
+import { Helmet } from 'react-helmet-async'
 
 const Home = () => {
  const courses = useLoaderData();
@@ -12,6 +13,9 @@ const Home = () => {
 
   return (
     <div>
+      <Helmet>
+          <title>Home | Lingo Bingo</title>
+      </Helmet>
         <Banner ></Banner>
         <AboutUs></AboutUs>
         <Count></Count>

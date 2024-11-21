@@ -3,6 +3,7 @@ import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
 import { AuthContext } from "../Provider/AuthProvider";
 import toast from "react-hot-toast";
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
       const {handleLogin,handleGoogleLogin,user,setUser,error,setError} = useContext(AuthContext)
@@ -62,6 +63,9 @@ const Login = () => {
 
   return (
     <div className="flex flex-col justify-center items-center mt-10 w-[400px] mx-auto space-y-5 mb-10">
+       <Helmet>
+          <title>Login | Lingo Bingo</title>
+      </Helmet>
       <div className="card bg-base-100 w-full  shrink-0 shadow-2xl py-5">
         <form onSubmit={handleSubmit} className="card-body">
           <div className="form-control">

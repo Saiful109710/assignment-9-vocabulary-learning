@@ -3,13 +3,14 @@ import { FaGoogle } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import toast from "react-hot-toast";
+import { Helmet } from "react-helmet-async";
 
 const Register = () => {
 
   const {setLoading} = useContext(AuthContext)
   const navigate = useNavigate()
 
-  const {handleRegister,user,setUser,handleGoogleLogin,error,setError} = useContext(AuthContext)
+  const {handleRegister,user,setUser,handleGoogleLogin,error,setError,handleUpdateProfile} = useContext(AuthContext)
   const handleSubmit=(e)=>{
 
     
@@ -24,6 +25,7 @@ const Register = () => {
       console.log(password,confirmPassword)
         
       if(password.length<6){
+                  
            return setError("Password should be more than 6 character")
       }
       if(password!==confirmPassword){
@@ -43,6 +45,14 @@ const Register = () => {
           setUser(res.user)
           setLoading(false)
           toast.success('registration successfully')
+          handleUpdateProfile(name,photo)
+          .then(()=>{
+            
+            })
+          .catch(err=>{
+            setError(err.message)
+            toast.error(err.message)
+          })
           navigate('/')
         
         })
@@ -51,6 +61,9 @@ const Register = () => {
           toast.error(err.message)
           setLoading(false)
         })
+
+      
+ 
 
     
 
@@ -64,12 +77,16 @@ const Register = () => {
         handleGoogleLogin()
         .then(res=>{
           toast.success('registration successfully')
+          navigate('/')
         }).catch(err=>{
           toast.error(err.message)
         })
     }
   return (
     <div className="flex flex-col justify-center items-center mt-5 w-[400px] mx-auto space-y-5 mb-10">
+       <Helmet>
+          <title>Register | Lingo Bingo</title>
+      </Helmet>
       <div className="card bg-base-100 w-full  shrink-0 shadow-2xl py-5">
         <form onSubmit={handleSubmit} className="card-body">
           <div className="form-control">

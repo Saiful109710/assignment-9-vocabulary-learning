@@ -3,6 +3,7 @@ import paddyImg from '../../src/assets/paddy.png'
 import gadgetImg from '../../src/assets/gadget.png'
 import playerXi from '../../src/assets/xiPlayers.png'
 import { Link } from 'react-router-dom'
+import { Helmet } from 'react-helmet-async'
 
 const AboutUs = () => {
 
@@ -31,6 +32,9 @@ const AboutUs = () => {
   ];
   return (
       <div className='p-5'>
+           <Helmet>
+              <title>AboutUs | Lingo Bingo</title>
+          </Helmet>
           <div className='bg-gradient-to-r bg-blue-500 text-white rounded-xl px-5 py-10 md:h-[400px] flex flex-col gap-5 justify-center items-center'>
             <h2 className='text-3xl md:text-5xl text-center'>I am Passionate  web developer</h2>
             <p className='text-lg md:text-xl w-4/5 text-center'>I am a passionate web developer dedicated to crafting dynamic, user-friendly websites and applications. With a keen eye for design and a strong foundation in modern web technologies, I thrive on transforming ideas into impactful digital experiences. Constantly learning and innovating, I aim to deliver solutions that are not only functional but also visually engaging.</p>

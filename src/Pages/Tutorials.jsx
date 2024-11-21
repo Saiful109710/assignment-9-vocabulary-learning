@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useLoaderData, useNavigate } from 'react-router-dom'
 import { FaPlus } from "react-icons/fa";
+import { Helmet } from 'react-helmet-async';
 
 const Tutorials = () => {
   const navigate = useNavigate()
@@ -18,6 +19,9 @@ const Tutorials = () => {
 
   return (
     <div>
+       <Helmet>
+          <title>Tutorials | Lingo Bingo</title>
+      </Helmet>
           <h2 className='text-2xl font-bold text-center my-5'>Tutorials</h2>
 
           <div className='flex flex-wrap-reverse md:grid md:grid-cols-2 md:h-[500px] gap-5 my-10 p-5 bg-gray-100'>

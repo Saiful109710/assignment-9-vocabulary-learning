@@ -14,7 +14,7 @@ const UpdateProfile = () => {
     const number = e.target.number.value;
     
 
-    handleUpdateProfile(name,photo,number)
+    handleUpdateProfile(name,photo)
     .then(()=>{
       toast.success('Profile Updated Successfully')
       navigate('/profile/myProfile')
@@ -60,32 +60,10 @@ const UpdateProfile = () => {
               required
             />
           </div>
-          <div className="form-control">
-            <label className="label">
-              <span className="">Update Phone</span>
-            </label>
-            <input
-              type="text"
-              name='number'
-              placeholder="number"
-              className="input border border-black bg-transparent "
-              required
-            />
-          </div>
-          <div className="form-control">
-            <label className="label">
-              <span className="">Update Password</span>
-            </label>
-            <input
-              type="password"
-              name='password'
-              placeholder="password"
-              className="input border border-black bg-transparent "
-              required
-            />
-          </div>
+        
+         
           <div className="form-control mt-6">
-            <button className="btn btn-primary">Save changes</button>
+            <button className="btn bg-slate-950 hover:bg-slate-700 text-white shadow-xl ">Save changes</button>
           </div>
         </form>
       </div>

@@ -38,11 +38,11 @@ const AuthProvider = ({children}) => {
 
       
 
-      const handleUpdateProfile =(name,photo,number)=>{
+      const handleUpdateProfile =(name,photo)=>{
           return  updateProfile(auth.currentUser,{
               displayName:name,
-              photoURL:photo,
-              phoneNumber:number
+              photoURL:photo
+              
             })
            
       }

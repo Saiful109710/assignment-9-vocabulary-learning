@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { useLoaderData, useNavigate, useParams } from 'react-router-dom'
 import Vocabulary_card from '../components/Vocabulary_card/Vocabulary_card'
 import { AuthContext } from '../Provider/AuthProvider'
+import { Helmet } from 'react-helmet-async'
 
 const Lesson = () => {
 
@@ -26,6 +27,10 @@ const Lesson = () => {
     
   return (
     <div className='mb-5 p-5'>
+                <Helmet>
+                  <title>Lesson - {lesson_no}  | Lingo Bingo</title>
+                </Helmet>
+                
             <h2 className='text-xl font-bold text-center text-white'><span className=' rounded-lg p-2 bg-gradient-to-r bg-primary'>Lesson No: {lesson_no}</span></h2>
             <div className='grid grid-cols-2 md:grid-cols-3 gap-5 my-10'>
                 {

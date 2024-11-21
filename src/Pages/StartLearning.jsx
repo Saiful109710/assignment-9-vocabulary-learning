@@ -1,4 +1,5 @@
 import React from 'react'
+import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 
 const StartLearning = () => {
@@ -7,6 +8,9 @@ const StartLearning = () => {
 
   return (
     <div className='p-5'>
+       <Helmet>
+          <title>Get Started | Lingo Bingo</title>
+      </Helmet>
         <h2 className='text-gray-800 text-center text-2xl font-bold'>Lets' Learn </h2>
         <section >
           <h2 className='text-2xl font-semibold text-center my-5'>Select a Lesson</h2>
